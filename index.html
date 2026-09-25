@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NOVA — Modern Fashion</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #080808;
+      --card: #111111;
+      --text: #ffffff;
+      --muted: #999999;
+      --border: #242424;
+      --accent: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(8, 8, 8, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: 4px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul a {
+      color: #ddd;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav ul a:hover {
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle at center, #202020 0%, #0b0b0b 45%, #050505 100%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+      animation: fadeUp 1s ease;
+    }
+
+    .small-title {
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(60px, 13vw, 150px);
+      letter-spacing: 15px;
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 35px;
+      color: #aaa;
+      font-size: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      background: white;
+      color: black;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      background: #ddd;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1px solid #555;
+      margin-left: 10px;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: black;
+    }
+
+    /* GENERAL SECTIONS */
+
+    .section {
+      padding: 100px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-heading span {
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 11px;
+    }
+
+    .section-heading h2 {
+      font-size: 42px;
+      margin-top: 10px;
+    }
+
+    .section-heading p {
+      color: #888;
+      margin-top: 8px;
+    }
+
+    /* CATEGORIES */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .category {
+      min-height: 180px;
+      padding: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: linear-gradient(135deg, #202020, #0e0e0e);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .category:hover {
+      transform: translateY(-6px);
+      border-color: #555;
+    }
+
+    .category h3 {
+      font-size: 24px;
+    }
+
+    .category p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .product {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 15px;
+      transition: 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-7px);
+      border-color: #444;
+    }
+
+    .product-image {
+      height: 300px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #292929, #101010);
+      font-size: 85px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 9px;
+      border: 1px solid #333;
+      color: #999;
+      border-radius: 20px;
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .product h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .product-description {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .price {
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .small-btn {
+      padding: 10px 15px;
+      background: white;
+      color: black;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /* PROMO */
+
+    .promo {
+      margin: 0 7%;
+      padding: 80px 30px;
+      text-align: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #222, #0c0c0c);
+      border: 1px solid var(--border);
+    }
+
+    .promo h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .promo p {
+      color: #999;
+      margin-bottom: 25px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: #0e0e0e;
+    }
+
+    .about-container {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-container p {
+      color: #999;
+      font-size: 17px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      color: #999;
+      margin: 10px auto 25px;
+      max-width: 550px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 35px 7%;
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+    }
+
+    .footer-logo {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 8px;
+    }
+
+    /* ANIMATION */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        padding: 16px 5%;
+      }
+
+      nav ul {
+        gap: 13px;
+      }
+
+      nav ul a {
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      .hero h1 {
+        letter-spacing: 8px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .btn {
+        padding: 13px 22px;
+      }
+
+      .section {
+        padding: 70px 5%;
+      }
+
+      .section-heading h2 {
+        font-size: 32px;
+      }
+
+      .categories,
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        height: 260px;
+      }
+
+      .promo {
+        margin: 0 5%;
+        padding: 60px 20px;
+      }
+
+      .promo h2 {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      nav ul {
+        gap: 9px;
+      }
+
+      nav ul a {
+        font-size: 10px;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      .hero h1 {
+        font-size: 60px;
+        letter-spacing: 6px;
+      }
+
+      .btn-outline {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+
+      .product-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="logo">NOVA</div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <div class="small-title">New Collection 2026</div>
+
+      <h1>NOVA</h1>
+
+      <p>
+        Modern fashion designed for everyday confidence.
+        Discover clean styles, comfortable fits and timeless pieces.
+      </p>
+
+      <a href="#shop" class="btn">EXPLORE COLLECTION</a>
+
+      <a href="#about" class="btn btn-outline">OUR STORY</a>
+
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+
+  <section class="section">
+
+    <div class="section-heading">
+      <span>Explore</span>
+      <h2>Shop By Category</h2>
+      <p>Find your everyday style.</p>
+    </div>
+
+    <div class="categories">
+
+      <a href="#shop" class="category">
+        <h3>Essentials</h3>
+        <p>Simple pieces for every day.</p>
+      </a>
+
+      <a href="#shop" class="category">
+        <h3>Outerwear</h3>
+        <p>Layer up with modern style.</p>
+      </a>
+
+      <a href="#shop" class="category">
+        <h3>Streetwear</h3>
+        <p>Bold looks for your lifestyle.</p>
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+
+  <section class="section" id="shop">
+
+    <div class="section-heading">
+      <span>Featured</span>
+      <h2>Latest Collection</h2>
+      <p>Our most popular pieces.</p>
+    </div>
+
+    <div class="products">
+
+
+      <div class="product">
+
+        <div class="product-image">👕</div>
+
+        <span class="tag">Best Seller</span>
+
+        <h3>Essential T-Shirt</h3>
+
+        <p class="product-description">
+          Premium everyday cotton with a clean modern fit.
+        </p>
+
+        <div class="product-bottom">
+          <div class="price">Rs. 2,499</div>
+
+          <a href="#contact" class="small-btn">
+            ORDER NOW
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="product-image">🧥</div>
+
+        <span class="tag">New</span>
+
+        <h3>NOVA Jacket</h3>
+
+        <p class="product-description">
+          A versatile jacket made for modern everyday outfits.
+        </p>
+
+        <div class="product-bottom">
+          <div class="price">Rs. 5,999</div>
+
+          <a href="#contact" class="small-btn">
+            ORDER NOW
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="product-image">👖</div>
+
+        <span class="tag">Popular</span>
+
+        <h3>Urban Jeans</h3>
+
+        <p class="product-description">
+          Comfortable denim with a timeless urban style.
+        </p>
+
+        <div class="product-bottom">
+          <div class="price">Rs. 3,499</div>
+
+          <a href="#contact" class="small-btn">
+            ORDER NOW
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="product-image">👟</div>
+
+        <span class="tag">Trending</span>
+
+        <h3>NOVA Sneakers</h3>
+
+        <p class="product-description">
+          Minimal sneakers designed for everyday movement.
+        </p>
+
+        <div class="product-bottom">
+          <div class="price">Rs. 6,499</div>
+
+          <a href="#contact" class="small-btn">
+            ORDER NOW
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="product-image">🧢</div>
+
+        <span class="tag">New</span>
+
+        <h3>Classic Cap</h3>
+
+        <p class="product-description">
+          A simple accessory to complete your NOVA look.
+        </p>
+
+        <div class="product-bottom">
+          <div class="price">Rs. 1,499</div>
+
+          <a href="#contact" class="small-btn">
+            ORDER NOW
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="product">
+
+        <div class="product-image">🧥</div>
+
+        <span class="tag">Limited</span>
+
+        <h3>Premium Hoodie</h3>
+
+        <p class="product-description">
+          Soft, comfortable and built for cooler days.
+        </p>
+
+        <div class="product-bottom">
+          <div class="price">Rs. 4,499</div>
+
+          <a href="#contact" class="small-btn">
+            ORDER NOW
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROMO -->
+
+  <section class="promo">
+
+    <h2>Style Starts Here.</h2>
+
+    <p>
+      Discover the NOVA collection and find your next favorite piece.
+    </p>
+
+    <a href="#shop" class="btn">SHOP NOVA</a>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section class="section about" id="about">
+
+    <div class="about-container">
+
+      <div class="section-heading">
+        <span>Our Story</span>
+        <h2>Made For Modern Life</h2>
+      </div>
+
+      <p>
+        NOVA is a fictional modern clothing brand created to combine
+        simple design, comfort and everyday style. We believe great
+        fashion doesn't need to be complicated. It just needs to feel
+        right.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="section contact" id="contact">
+
+    <div class="section-heading">
+      <span>Contact</span>
+      <h2>Let's Talk</h2>
+    </div>
+
+    <p>
+      Interested in a NOVA product? Get in touch with us to place
+      an order or ask a question.
+    </p>
+
+    <a
+      href="https://wa.me/923000000000"
+      class="btn"
+      target="_blank">
+      CONTACT ON WHATSAPP
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-logo">NOVA</div>
+
+    <p>
+      © 2026 NOVA. All rights reserved.
+    </p>
+
+  </footer>
+
+
+</body>
+</html>
