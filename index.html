@@ -334,6 +334,8 @@
       font-size: 11px;
       font-weight: bold;
       transition: 0.3s;
+      border: none;
+      cursor: pointer;
     }
 
     .order-btn:hover {
@@ -409,6 +411,124 @@
       font-size: 21px;
       letter-spacing: 4px;
       margin-bottom: 8px;
+    }
+
+    /* ORDER MODAL */
+
+    .order-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 2000;
+      backdrop-filter: blur(8px);
+    }
+
+    .order-modal.active {
+      display: flex;
+    }
+
+    .order-box {
+      width: 100%;
+      max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 30px;
+      position: relative;
+      animation: fadeUp 0.3s ease;
+    }
+
+    .order-box h2 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .order-subtitle {
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: #aaa;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: white;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 12px;
+      color: #bbb;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 13px;
+      border-radius: 5px;
+      border: 1px solid #333;
+      background: #080808;
+      color: white;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #777;
+    }
+
+    .selected-product {
+      background: #1b1b1b;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 13px;
+      margin-bottom: 20px;
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .selected-product strong {
+      color: white;
+    }
+
+    .submit-order {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      background: white;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 13px;
+      transition: 0.3s;
+      margin-top: 5px;
+    }
+
+    .submit-order:hover {
+      background: #ddd;
+      transform: translateY(-2px);
     }
 
     /* ANIMATION */
@@ -527,6 +647,10 @@
 
       .promo h2 {
         font-size: 34px;
+      }
+
+      .order-box {
+        padding: 25px 20px;
       }
     }
   </style>
@@ -670,12 +794,11 @@
               Rs. 2,499
             </div>
 
-            <a
-              href="https://wa.me/923000000000?text=Hi%20NOVA%2C%20I%27m%20interested%20in%20the%20Essential%20T-Shirt%20-%20Rs.%202%2C499."
-              target="_blank"
-              class="order-btn">
+            <button
+              class="order-btn"
+              onclick="openOrder('Essential T-Shirt', 'Rs. 2,499')">
               ORDER NOW
-            </a>
+            </button>
 
           </div>
 
@@ -715,12 +838,11 @@
               Rs. 5,999
             </div>
 
-            <a
-              href="https://wa.me/923000000000?text=Hi%20NOVA%2C%20I%27m%20interested%20in%20the%20NOVA%20Jacket%20-%20Rs.%205%2C999."
-              target="_blank"
-              class="order-btn">
+            <button
+              class="order-btn"
+              onclick="openOrder('NOVA Jacket', 'Rs. 5,999')">
               ORDER NOW
-            </a>
+            </button>
 
           </div>
 
@@ -760,12 +882,11 @@
               Rs. 3,499
             </div>
 
-            <a
-              href="https://wa.me/923000000000?text=Hi%20NOVA%2C%20I%27m%20interested%20in%20the%20Urban%20Jeans%20-%20Rs.%203%2C499."
-              target="_blank"
-              class="order-btn">
+            <button
+              class="order-btn"
+              onclick="openOrder('Urban Jeans', 'Rs. 3,499')">
               ORDER NOW
-            </a>
+            </button>
 
           </div>
 
@@ -805,12 +926,11 @@
               Rs. 6,499
             </div>
 
-            <a
-              href="https://wa.me/923000000000?text=Hi%20NOVA%2C%20I%27m%20interested%20in%20the%20NOVA%20Sneakers%20-%20Rs.%206%2C499."
-              target="_blank"
-              class="order-btn">
+            <button
+              class="order-btn"
+              onclick="openOrder('NOVA Sneakers', 'Rs. 6,499')">
               ORDER NOW
-            </a>
+            </button>
 
           </div>
 
@@ -850,12 +970,11 @@
               Rs. 4,299
             </div>
 
-            <a
-              href="https://wa.me/923000000000?text=Hi%20NOVA%2C%20I%27m%20interested%20in%20the%20Streetwear%20Collection%20-%20Rs.%204%2C299."
-              target="_blank"
-              class="order-btn">
+            <button
+              class="order-btn"
+              onclick="openOrder('Streetwear Collection', 'Rs. 4,299')">
               ORDER NOW
-            </a>
+            </button>
 
           </div>
 
@@ -895,12 +1014,11 @@
               Rs. 7,499
             </div>
 
-            <a
-              href="https://wa.me/923000000000?text=Hi%20NOVA%2C%20I%27m%20interested%20in%20the%20Premium%20Collection%20-%20Rs.%207%2C499."
-              target="_blank"
-              class="order-btn">
+            <button
+              class="order-btn"
+              onclick="openOrder('Premium Collection', 'Rs. 7,499')">
               ORDER NOW
-            </a>
+            </button>
 
           </div>
 
@@ -974,40 +1092,3 @@
     </a>
 
   </section>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="footer-logo">
-      NOVA
-    </div>
-
-    <p>
-      © 2026 NOVA. All rights reserved.
-    </p>
-
-  </footer>
-
-
-  <!-- MOBILE MENU -->
-
-  <script>
-
-    function toggleMenu() {
-      document
-        .getElementById("navLinks")
-        .classList.toggle("active");
-    }
-
-    function closeMenu() {
-      document
-        .getElementById("navLinks")
-        .classList.remove("active");
-    }
-
-  </script>
-
-</body>
-  </html>
