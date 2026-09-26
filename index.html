@@ -6,279 +6,1030 @@
 <title>NOVA | Premium Fashion</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#080808;
-    color:#fff;
-    line-height:1.6;
+body {
+    font-family: Arial, sans-serif;
+    background: #080808;
+    color: white;
+    line-height: 1.6;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-button{
-    font-family:inherit;
+button {
+    font-family: inherit;
 }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
 }
 
 /* NAVBAR */
-nav{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(8,8,8,.95);
-    border-bottom:1px solid #222;
-    backdrop-filter:blur(10px);
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8, 8, 8, 0.96);
+    border-bottom: 1px solid #222;
 }
 
-.nav-container{
-    height:75px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+.nav-container {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.logo{
-    font-size:30px;
-    font-weight:900;
-    letter-spacing:5px;
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 5px;
 }
 
-.nav-links{
-    display:flex;
-    gap:30px;
-    list-style:none;
+.nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
 }
 
-.nav-links a{
-    color:#ccc;
-    transition:.3s;
+.nav-links a {
+    color: #ccc;
 }
 
-.nav-links a:hover{
-    color:#fff;
+.nav-links a:hover {
+    color: white;
 }
 
-.menu-btn{
-    display:none;
-    background:none;
-    border:1px solid #444;
-    color:#fff;
-    font-size:25px;
-    padding:5px 12px;
-    border-radius:8px;
-    cursor:pointer;
+.menu-btn {
+    display: none;
+    background: none;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 22px;
+    cursor: pointer;
 }
 
 /* HERO */
-.hero{
-    min-height:88vh;
-    display:flex;
-    align-items:center;
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
     background:
-    radial-gradient(circle at 80% 30%,#222 0%,transparent 35%),
-    linear-gradient(135deg,#080808,#111);
+        radial-gradient(circle at 80% 30%, #222, transparent 35%),
+        linear-gradient(135deg, #080808, #111);
 }
 
-.hero-content{
-    max-width:700px;
+.hero-content {
+    max-width: 700px;
 }
 
-.hero-small{
-    color:#aaa;
-    letter-spacing:4px;
-    font-size:14px;
-    margin-bottom:15px;
+.hero-small {
+    color: #888;
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin-bottom: 15px;
 }
 
-.hero h1{
-    font-size:clamp(55px,11vw,110px);
-    line-height:.95;
-    letter-spacing:8px;
-    margin-bottom:25px;
+.hero h1 {
+    font-size: clamp(60px, 12vw, 120px);
+    letter-spacing: 8px;
+    line-height: 1;
+    margin-bottom: 25px;
 }
 
-.hero p{
-    color:#aaa;
-    max-width:550px;
-    font-size:18px;
-    margin-bottom:35px;
+.hero p {
+    color: #999;
+    font-size: 18px;
+    max-width: 550px;
+    margin-bottom: 30px;
 }
 
-.btn{
-    display:inline-block;
-    background:#fff;
-    color:#000;
-    padding:14px 28px;
-    border-radius:6px;
-    font-weight:bold;
-    border:none;
-    cursor:pointer;
-    transition:.3s;
+.btn {
+    display: inline-block;
+    background: white;
+    color: black;
+    padding: 13px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
 
-.btn:hover{
-    transform:translateY(-3px);
-    background:#ddd;
+.btn:hover {
+    background: #ddd;
 }
 
 /* SECTIONS */
-.section{
-    padding:90px 0;
+.section {
+    padding: 80px 0;
 }
 
-.heading{
-    margin-bottom:45px;
+.heading {
+    margin-bottom: 40px;
 }
 
-.heading span{
-    color:#777;
-    font-size:13px;
-    letter-spacing:4px;
-    text-transform:uppercase;
+.heading span {
+    color: #777;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
 
-.heading h2{
-    font-size:42px;
-    margin-top:8px;
+.heading h2 {
+    font-size: 40px;
+    margin-top: 5px;
 }
 
 /* CATEGORIES */
-.categories{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.category{
-    min-height:220px;
-    border:1px solid #252525;
-    border-radius:12px;
-    padding:30px;
-    display:flex;
-    align-items:flex-end;
-    background:linear-gradient(145deg,#151515,#0d0d0d);
-    transition:.3s;
+.category {
+    height: 210px;
+    border: 1px solid #292929;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    align-items: flex-end;
+    background: linear-gradient(145deg, #171717, #0d0d0d);
 }
 
-.category:hover{
-    transform:translateY(-5px);
-    border-color:#555;
-}
-
-.category h3{
-    font-size:25px;
+.category h3 {
+    font-size: 24px;
 }
 
 /* PRODUCTS */
-.products{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
-.product{
-    background:#111;
-    border:1px solid #252525;
-    border-radius:12px;
-    overflow:hidden;
-    transition:.3s;
+.product {
+    background: #111;
+    border: 1px solid #282828;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-.product:hover{
-    transform:translateY(-5px);
-    border-color:#444;
+.product-image {
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    background: linear-gradient(145deg, #202020, #0d0d0d);
 }
 
-.product-image{
-    height:260px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(145deg,#202020,#0d0d0d);
-    font-size:55px;
+.product-info {
+    padding: 20px;
 }
 
-.product-info{
-    padding:22px;
+.product-info h3 {
+    font-size: 21px;
+    margin-bottom: 7px;
 }
 
-.product-info h3{
-    font-size:21px;
-    margin-bottom:7px;
+.description {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 18px;
 }
 
-.description{
-    color:#888;
-    font-size:14px;
-    margin-bottom:18px;
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.product-bottom{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
+.price {
+    font-weight: bold;
+    font-size: 17px;
 }
 
-.price{
-    font-weight:bold;
-    font-size:18px;
+.order-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 11px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.order-btn{
-    background:#fff;
-    color:#000;
-    border:none;
-    padding:11px 15px;
-    border-radius:6px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.order-btn:hover{
-    background:#ccc;
-    transform:translateY(-2px);
+.order-btn:hover {
+    background: #ccc;
 }
 
 /* PROMO */
-.promo{
-    margin:30px 0;
-    padding:60px 30px;
-    text-align:center;
-    border:1px solid #292929;
-    border-radius:15px;
-    background:linear-gradient(135deg,#171717,#0c0c0c);
+.promo {
+    text-align: center;
+    padding: 55px 25px;
+    border: 1px solid #292929;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #171717, #0c0c0c);
 }
 
-.promo h2{
-    font-size:40px;
-    margin-bottom:10px;
+.promo h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
 }
 
-.promo p{
-    color:#999;
-    margin-bottom:25px;
+.promo p {
+    color: #999;
+    margin-bottom: 25px;
 }
 
 /* ABOUT */
-.about{
-    max-width:800px;
+.about {
+    max-width: 800px;
 }
 
-.about p
+.about p {
+    color: #999;
+    font-size: 18px;
+}
+
+/* CONTACT */
+.contact {
+    text-align: center;
+}
+
+.contact-text {
+    color: #999;
+    max-width: 600px;
+    margin: 0 auto 25px;
+}
+
+/* FOOTER */
+footer {
+    border-top: 1px solid #222;
+    padding: 30px;
+    text-align: center;
+    color: #666;
+}
+
+/* ORDER MODAL */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2000;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 450px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 14px;
+    padding: 28px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    border: none;
+    background: none;
+    color: #aaa;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: white;
+}
+
+.modal-box h2 {
+    margin-bottom: 8px;
+}
+
+.selected-info {
+    color: #999;
+    margin-bottom: 25px;
+}
+
+.selected-info strong {
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    color: #ccc;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 13px;
+    background: #080808;
+    border: 1px solid #333;
+    border-radius: 7px;
+    color: white;
+    outline: none;
+    font-size: 15px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #777;
+}
+
+.submit-order {
+    width: 100%;
+    padding: 14px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.submit-order:hover {
+    background: #ddd;
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #080808;
+        flex-direction: column;
+        padding: 20px;
+        gap: 18px;
+        border-bottom: 1px solid #222;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .categories,
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 78vh;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .product-bottom {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .order-btn {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="container nav-container">
+
+        <a href="#home" class="logo">NOVA</a>
+
+        <button class="menu-btn" id="menuBtn" type="button">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+
+            <div class="hero-small">
+                PREMIUM FASHION
+            </div>
+
+            <h1>NOVA</h1>
+
+            <p>
+                Modern fashion designed for people who want
+                simple, clean and confident style.
+            </p>
+
+            <a href="#shop" class="btn">
+                SHOP NOW
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+    <div class="container">
+
+        <div class="heading">
+            <span>Explore</span>
+            <h2>Categories</h2>
+        </div>
+
+        <div class="categories">
+
+            <div class="category">
+                <h3>Men's Wear</h3>
+            </div>
+
+            <div class="category">
+                <h3>Women's Wear</h3>
+            </div>
+
+            <div class="category">
+                <h3>Accessories</h3>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- SHOP -->
+<section class="section" id="shop">
+    <div class="container">
+
+        <div class="heading">
+            <span>NOVA Collection</span>
+            <h2>Featured Products</h2>
+        </div>
+
+        <div class="products">
+
+
+            <!-- PRODUCT 1 -->
+            <div class="product">
+
+                <div class="product-image">🧥</div>
+
+                <div class="product-info">
+
+                    <h3>NOVA Jacket</h3>
+
+                    <p class="description">
+                        A clean and modern jacket for everyday style.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">Rs. 5,999</span>
+
+                        <button
+                            type="button"
+                            class="order-btn"
+                            data-product="NOVA Jacket"
+                            data-price="Rs. 5,999">
+                            ORDER NOW
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+            <div class="product">
+
+                <div class="product-image">👕</div>
+
+                <div class="product-info">
+
+                    <h3>NOVA Classic Tee</h3>
+
+                    <p class="description">
+                        Minimal premium t-shirt with a comfortable fit.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">Rs. 2,499</span>
+
+                        <button
+                            type="button"
+                            class="order-btn"
+                            data-product="NOVA Classic Tee"
+                            data-price="Rs. 2,499">
+                            ORDER NOW
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+            <div class="product">
+
+                <div class="product-image">👖</div>
+
+                <div class="product-info">
+
+                    <h3>NOVA Denim</h3>
+
+                    <p class="description">
+                        Classic denim designed for everyday outfits.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">Rs. 3,999</span>
+
+                        <button
+                            type="button"
+                            class="order-btn"
+                            data-product="NOVA Denim"
+                            data-price="Rs. 3,999">
+                            ORDER NOW
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+            <div class="product">
+
+                <div class="product-image">🧢</div>
+
+                <div class="product-info">
+
+                    <h3>NOVA Cap</h3>
+
+                    <p class="description">
+                        Simple everyday cap with a premium look.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">Rs. 1,499</span>
+
+                        <button
+                            type="button"
+                            class="order-btn"
+                            data-product="NOVA Cap"
+                            data-price="Rs. 1,499">
+                            ORDER NOW
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+            <div class="product">
+
+                <div class="product-image">👟</div>
+
+                <div class="product-info">
+
+                    <h3>NOVA Sneakers</h3>
+
+                    <p class="description">
+                        Clean everyday sneakers with a modern design.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">Rs. 6,499</span>
+
+                        <button
+                            type="button"
+                            class="order-btn"
+                            data-product="NOVA Sneakers"
+                            data-price="Rs. 6,499">
+                            ORDER NOW
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 6 -->
+            <div class="product">
+
+                <div class="product-image">🎒</div>
+
+                <div class="product-info">
+
+                    <h3>Premium Collection</h3>
+
+                    <p class="description">
+                        A refined collection for a clean premium look.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">Rs. 7,499</span>
+
+                        <button
+                            type="button"
+                            class="order-btn"
+                            data-product="Premium Collection"
+                            data-price="Rs. 7,499">
+                            ORDER NOW
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- PROMO -->
+<section class="section">
+    <div class="container">
+
+        <div class="promo">
+
+            <h2>YOUR STYLE. YOUR NOVA.</h2>
+
+            <p>
+                Discover simple fashion made for everyday confidence.
+            </p>
+
+            <a href="#shop" class="btn">
+                EXPLORE COLLECTION
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <div class="container">
+
+        <div class="heading">
+            <span>Who We Are</span>
+            <h2>About NOVA</h2>
+        </div>
+
+        <div class="about">
+
+            <p>
+                NOVA is a modern fashion concept focused on clean
+                designs, simple style and quality products.
+                Our goal is to make fashion easy, comfortable
+                and accessible.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+
+    <div class="container">
+
+        <div class="heading">
+            <span>Contact</span>
+            <h2>Let's Talk</h2>
+        </div>
+
+        <p class="contact-text">
+            Interested in a NOVA product?
+            Contact us on WhatsApp for orders and questions.
+        </p>
+
+        <a
+            href="https://wa.me/923000000000"
+            target="_blank"
+            class="btn">
+            CONTACT ON WHATSAPP
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ORDER MODAL -->
+<div class="modal" id="orderModal">
+
+    <div class="modal-box">
+
+        <button
+            type="button"
+            class="close-btn"
+            id="closeModal">
+            ×
+        </button>
+
+        <h2>Place Your Order</h2>
+
+        <p class="selected-info">
+
+            Product:
+            <strong id="selectedProduct"></strong>
+
+            <br>
+
+            Price:
+            <strong id="selectedPrice"></strong>
+
+        </p>
+
+
+        <form id="orderForm">
+
+            <div class="form-group">
+
+                <label for="customerName">
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter your name"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="quantity">
+                    Quantity
+                </label>
+
+                <select id="quantity" required>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="city">
+                    Delivery City
+                </label>
+
+                <input
+                    type="text"
+                    id="city"
+                    placeholder="Enter your city"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="03XXXXXXXXX"
+                    required>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-order">
+                SEND ORDER ON WHATSAPP
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 NOVA. All rights reserved.</p>
+</footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* MOBILE MENU */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+
+
+    /* ORDER MODAL */
+
+    const modal = document.getElementById("orderModal");
+    const closeModal = document.getElementById("closeModal");
+    const orderForm = document.getElementById("orderForm");
+
+    const selectedProduct =
+        document.getElementById("selectedProduct");
+
+    const selectedPrice =
+        document.getElementById("selectedPrice");
+
+    let currentProduct = "";
+    let currentPrice = "";
+
+
+    /* ORDER NOW BUTTONS */
+
+    const orderButtons =
+        document.querySelectorAll(".order-btn");
+
+    orderButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            currentProduct =
+                button.getAttribute("data-product");
+
+            currentPrice =
+                button.getAttribute("data-price");
+
+            selectedProduct.textContent =
+                currentProduct;
+
+            selectedPrice.textContent =
+                currentPrice;
+
+            modal.classList.add("show");
+
+        });
+
+    });
+
+
+    /* CLOSE MODAL */
+
+    closeModal.addEventListener("click", function () {
+
+        modal.classList.remove("show");
+
+    });
+
+
+    /* CLOSE WHEN CLICKING OUTSIDE */
+
+    modal.addEventListener("click", function (event) {
+
+        if (event.target === modal) {
+
+            modal.classList.remove("show");
+
+        }
+
+    });
+
+
+    /* SEND ORDER TO WHATSAPP */
+
+    orderForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("customerName").value.trim();
+
+        const quantity =
+            document.getElementById("quantity").value;
+
+        const city =
+            document.getElementById("city").value.trim();
+
+        const phone =
+            document.getElementById("phone").value.trim();
+
+
+        const whatsappNumber = "923000000000";
+
+
+        const message =
+            "Hi NOVA!" +
+            "\n\n" +
+            "New Order" +
+            "\n--------------------" +
+            "\nProduct: " + currentProduct +
+            "\nPrice: " + currentPrice +
+            "\nQuantity: " + quantity +
+            "\nCustomer Name: " + name +
+            "\nDelivery City: " + city +
+            "\nPhone Number: " + phone +
+            "\n--------------------";
+
+
+        const whatsappURL =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            encodeURIComponent(message);
+
+
+        window.location.href = whatsappURL;
+
+    });
+
+});
+</script>
+
+</body>
+    </html>
